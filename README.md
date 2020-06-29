@@ -18,7 +18,7 @@ git clone https://github.com/kvnpons23/robot-ts-cli.git
 |npm install -global| to install to your local machine|
 |npm t | to check for the tests and coverage|
 
-## commands
+## Commands
 
 ### place
 

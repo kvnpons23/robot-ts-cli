@@ -2,11 +2,26 @@ import { IObject } from '../interfaces/objectType'
 import IQuestion from '../interfaces/questionType';
 import IValidation from '../interfaces/validationType';
 import IValidationResult from '../interfaces/validationResultType';
+
+/**
+ * module to validate input
+ */
 export default class InputValidator {
 
+    /**
+     * method to check whether the input is required
+     * @param answer 
+     * @param validation 
+     */
     static checkRequired = (answer: any, validation: IValidation): boolean => {
         return answer?.toString() && validation.required;
     } 
+
+    /**
+     * method to check whether input is within the range specified in validation schema
+     * @param answer 
+     * @param validation 
+     */
     static checkRange = (answer: any, validation: IValidation): boolean => {
         // only number range is supported for now
         if (validation.range && validation.type === 'number') {
@@ -19,6 +34,12 @@ export default class InputValidator {
         }
         return true;
     }
+
+    /**
+     * method to check whether value is inside enum specified in validation schema
+     * @param answer 
+     * @param validation 
+     */
     static checkEnum = (answer: any, validation: IValidation): boolean => {
         if (validation.enum) {
             let validationEnum = validation.enum;
@@ -31,6 +52,12 @@ export default class InputValidator {
         return true;
     }
 
+    /**
+     * validitor method for each attribute in schema
+     * @param name 
+     * @param answer 
+     * @param validation 
+     */
     static validateAttribute(name: string, answer: any, validation: IValidation)
         : IValidationResult | undefined {
 
@@ -48,6 +75,11 @@ export default class InputValidator {
 
     }
 
+    /**
+     * validator method to validate input based on schema validations
+     * @param answers
+     * @param schema 
+     */
     static validate(answers: IObject, schema: IQuestion[]) {
         let validationResult: IValidationResult[] = [];
         schema.forEach(attr => {

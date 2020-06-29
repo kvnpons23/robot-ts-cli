@@ -2,8 +2,15 @@ import { IObject } from "../interfaces/objectType";
 import { CACHE_KEY, DB_DIR } from '../constants'
 import fs from 'fs';
 
+/**
+ * module for setting cache
+ */
 export default class Cache {
 
+    /**
+     * method to set location
+     * @param location 
+     */
     static set(location: IObject): boolean {
         try {
             if (!fs.existsSync(DB_DIR)){
@@ -17,6 +24,9 @@ export default class Cache {
 
     }
 
+    /**
+     * method to get location
+     */
     static get(): any {
         try {
             if (!fs.existsSync(`${DB_DIR}/db.json`)){

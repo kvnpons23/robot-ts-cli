@@ -2,6 +2,9 @@ import CommandBase from '../commandBase';
 import Cache from '../db/cache';
 import PlaceSchema from '../schema/placeSchema'
 
+/**
+ * class handler for move command
+ */
 export default class Move extends CommandBase {
 
     process(): void {

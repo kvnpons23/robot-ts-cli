@@ -1,6 +1,9 @@
 import CommandBase from '../commandBase';
 import Cache from '../db/cache';
 
+/**
+ * class handler for left command
+ */
 export default class Left extends CommandBase {
 
     process(): void {

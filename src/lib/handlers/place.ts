@@ -5,6 +5,9 @@ import PlaceSchema from '../schema/placeSchema';
 import Cache from '../db/cache';
 import InputValidator from '../validator/inputValidator';
 
+/**
+ * class handler for place command
+ */
 export default class Place extends CycleBase{
     onReceive(answers?: IObject): any{
         return SchemaParser.parse(answers!,PlaceSchema)!;

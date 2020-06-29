@@ -1,6 +1,9 @@
 import IQuestion from '../interfaces/questionType'
 import { IObject } from '../interfaces/objectType';
-import { Console } from 'console';
+
+/**
+ * module to parse inputs
+ */
 export default class SchemaParser {
     /**
      * method to parse input to their schema validation type
